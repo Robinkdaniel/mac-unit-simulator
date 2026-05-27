@@ -68,20 +68,7 @@ First 5 (int8):      [   2.388 -189.754 -148.912  -30.078 -190.913]
 
 0.124% quantization error. 4x memory reduction. That tradeoff is why real accelerators use INT8.
 
----
 
-## How to run
-
-```bash
-pip install numpy
-
-python mac_float32.py       # Stage 1 — float baseline
-python mac_int8.py          # Stage 2 — INT8 MAC
-python pe_array.py          # Stage 3 — PE array
-python memory_analysis.py   # Stage 4 — memory analysis
-```
-
----
 
 ## How INT8 quantization works
 
@@ -100,16 +87,3 @@ result = accumulator * (weight_scale * input_scale)
 ```
 
 INT8 × INT8 = INT16 product, accumulated into INT32. This is exactly what a hardware PE implements in silicon.
-
----
-
-## Next in this series
-
-- [ ] Pipelined MAC unit in Verilog with cocotb testbench
-- [ ] AXI4-Lite slave interface in Verilog
-- [ ] RISC-V single-cycle CPU in Verilog
-- [ ] TFLite INT8 model on ESP32
-
----
-
-*Robin Daniel — Final Year ECE, IES College of Engineering Kerala*
